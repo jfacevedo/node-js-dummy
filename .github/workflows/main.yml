@@ -4,7 +4,7 @@ on:
   push:
     branches: ["main", "workshop1"]
 jobs:
-  Build:
+  Lint:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '16'
-      - run: npm ci
+      - run: npm lint
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
