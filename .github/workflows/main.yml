@@ -14,9 +14,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '16'
-      - run: npm audit > ./audit.log || exit 0 
+      - run: npm audit > ./audit.log || exit 0
+      - name: Comment PR
         if: github.event_name == 'pull_request' 
-      - uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v2
         with:
           filePath: ./audit.log
   test:
