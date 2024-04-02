@@ -1,15 +1,15 @@
-name: GitHub Actions Demo - Workshop3
+name: GitHub Actions Demo - workshop3
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on:
-    workflow_dispatch:
+on: 
+  workflow_dispatch:
 env:
-    testvar: 2    
+  testvar: 2
 jobs:
-    Lint:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Check out repository code
-            uses: actions/checkout@v4
-            - run: echo ${{ vars.testvar }}
-
-  
+  Lint:
+    runs-on: ubuntu-latest
+    env:
+      testvar: 3
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "${{ vars.testvar }}, ${{ env.testvar }}"
